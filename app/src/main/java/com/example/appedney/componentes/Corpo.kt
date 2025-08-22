@@ -21,12 +21,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.appedney.ui.theme.Fundo
+import com.example.appedney.ui.theme.Fundobt
+import com.example.appedney.ui.theme.Fundobt2
+import com.example.appedney.ui.theme.Fundobt3
+import com.example.appedney.ui.theme.Fundobt4
 import com.example.appedney.ui.theme.Preto
-import com.example.appedney.ui.theme.fundo
-import com.example.appedney.ui.theme.fundobt
-import com.example.appedney.ui.theme.fundobt2
-import com.example.appedney.ui.theme.fundobt3
-import com.example.appedney.ui.theme.fundobt4
 
 @Composable
 fun body(navController: NavController, modifier: Modifier = Modifier) {
@@ -35,7 +35,7 @@ fun body(navController: NavController, modifier: Modifier = Modifier) {
             Box(
                 modifier = modifier
                     .fillMaxSize()
-                    .background(color = fundo)
+                    .background(color = Fundo)
                     .fillMaxWidth(),
             ) {
                 Column {
@@ -52,7 +52,7 @@ fun body(navController: NavController, modifier: Modifier = Modifier) {
                                 .height(84.dp),
 
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = fundobt, // Background color
+                                containerColor = Fundobt, // Background color
                                 contentColor = Color.White,  // Text/content color
                                 //disabledContainerColor = Color.LightGray, // Disabled background
                                 //disabledContentColor = Color.Gray // Disabled text/content
@@ -72,7 +72,7 @@ fun body(navController: NavController, modifier: Modifier = Modifier) {
                                 .width(251.dp)
                                 .height(84.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = fundobt2, // Background color
+                                containerColor = Fundobt2, // Background color
                                 contentColor = Color.White,  // Text/content color
                                 //disabledContainerColor = Color.LightGray, // Disabled background
                                 //disabledContentColor = Color.Gray // Disabled text/content
@@ -98,7 +98,7 @@ fun body(navController: NavController, modifier: Modifier = Modifier) {
                                 .height(84.dp),
 
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = fundobt, // Background color
+                                containerColor = Fundobt, // Background color
                                 contentColor = Color.White,  // Text/content color
                                 //disabledContainerColor = Color.LightGray, // Disabled background
                                 //disabledContentColor = Color.Gray // Disabled text/content
@@ -118,7 +118,7 @@ fun body(navController: NavController, modifier: Modifier = Modifier) {
                                 .width(251.dp)
                                 .height(84.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = fundobt3, // Background color
+                                containerColor = Fundobt3, // Background color
                                 contentColor = Preto,  // Text/content color
                                 //disabledContainerColor = Color.LightGray, // Disabled background
                                 //disabledContentColor = Color.Gray // Disabled text/content
@@ -144,7 +144,7 @@ fun body(navController: NavController, modifier: Modifier = Modifier) {
                                 .height(84.dp),
 
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = fundobt, // Background color
+                                containerColor = Fundobt, // Background color
                                 contentColor = Color.White,  // Text/content color
                                 //disabledContainerColor = Color.LightGray, // Disabled background
                                 //disabledContentColor = Color.Gray // Disabled text/content
@@ -164,7 +164,7 @@ fun body(navController: NavController, modifier: Modifier = Modifier) {
                                 .width(251.dp)
                                 .height(84.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = fundobt4, // Background color
+                                containerColor = Fundobt4, // Background color
                                 contentColor = Preto,  // Text/content color
                                 //disabledContainerColor = Color.LightGray, // Disabled background
                                 //disabledContentColor = Color.Gray // Disabled text/content

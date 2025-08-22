@@ -17,9 +17,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.appedney.ui.theme.AppEdneyTheme
-import com.example.appedney.ui.theme.Cor1
-import com.example.appedney.ui.theme.Cor2
-import com.example.appedney.ui.theme.CorText
+import com.example.appedney.ui.theme.Laranja
+import com.example.appedney.ui.theme.LaranjaClaro
+import com.example.appedney.ui.theme.CorTexto
 
 @Composable
 fun appBar(texto: String, modifier: Modifier = Modifier) {
@@ -35,8 +35,8 @@ fun appBar(texto: String, modifier: Modifier = Modifier) {
                     .background(
                         brush = Brush.verticalGradient(
                             colors = listOf(
-                                Cor1,
-                                Cor2
+                                Laranja,
+                                LaranjaClaro
                             )
                         )
                     )
@@ -46,7 +46,7 @@ fun appBar(texto: String, modifier: Modifier = Modifier) {
                 Text(
                     texto,
                     modifier = modifier.offset(y = (-25).dp),
-                    color = CorText,
+                    color = CorTexto,
                     fontWeight = FontWeight.Normal,
                     fontSize = 48.sp,
                 )

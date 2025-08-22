@@ -22,8 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.appedney.R
-import com.example.appedney.ui.theme.Cor1
-import com.example.appedney.ui.theme.Cor2
+import com.example.appedney.ui.theme.Laranja
+import com.example.appedney.ui.theme.LaranjaClaro
 
 @Composable
 fun NavegacaoInferior(modifier: Modifier = Modifier) {
@@ -37,8 +37,8 @@ fun NavegacaoInferior(modifier: Modifier = Modifier) {
                     .background(
                         brush = Brush.verticalGradient(
                             colors = listOf(
-                                Cor2,
-                                Cor1
+                                Laranja,
+                                LaranjaClaro
                             )
                         )
                     )
