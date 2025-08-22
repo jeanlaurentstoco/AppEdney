@@ -13,8 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.appedney.ui.theme.AppEdneyTheme
 import com.example.appedney.ui.theme.Cor1
 import com.example.appedney.ui.theme.Cor2
 import com.example.appedney.ui.theme.CorText
@@ -50,5 +52,13 @@ fun appBar(texto: String, modifier: Modifier = Modifier) {
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun appBarPreview(modifier: Modifier = Modifier) {
+    AppEdneyTheme {
+        appBar("Início")
     }
 }
