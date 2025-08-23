@@ -11,6 +11,7 @@ import com.example.appedney.ui.theme.AppEdneyTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.appedney.telas.CriarPacote
 import com.example.appedney.telas.DadosEvolucao
 import com.example.appedney.telas.TelaInicio
 
@@ -37,6 +38,7 @@ fun AppNavHost() {
     ) {
         composable("TelaInicio") { TelaInicio(navController) }
         composable("Dados e Evolução") { DadosEvolucao(navController) }
+        composable("Criar Pacote") { CriarPacote(navController) }
     }
 }
 

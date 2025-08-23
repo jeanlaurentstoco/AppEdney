@@ -16,9 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.example.appedney.componentes.appBar
 import com.example.appedney.componentes.body
 import com.example.appedney.ui.theme.Fundobt
@@ -184,7 +181,7 @@ fun BotoesTelaInicial(navController: NavController, modifier: Modifier = Modifie
             Button(
                 shape = RoundedCornerShape(24.dp),
                 onClick = {
-                    navController.navigate("Acomp. Prensagem")
+                    navController.navigate("Criar Pacote")
                 },
                 modifier = modifier
                     .width(251.dp)
