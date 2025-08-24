@@ -1,10 +1,15 @@
 package com.example.appedney.telas
 
+import android.net.Uri
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -41,7 +46,9 @@ fun CriarPacote(navController: NavController, modifier: Modifier = Modifier) {
 
 @Composable
 fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Modifier) {
-    var texto by rememberSaveable() { mutableStateOf("") }
+    var pacote by rememberSaveable() { mutableStateOf("") }
+    var furo by rememberSaveable() { mutableStateOf("") }
+    var amostra by rememberSaveable() { mutableStateOf("") }
     Column(
         Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -49,8 +56,8 @@ fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Mod
     ) {
         Spacer(Modifier.weight(1f))
         OutlinedTextField(
-            value = texto,
-            onValueChange = { texto = it },
+            value = pacote,
+            onValueChange = { pacote = it },
             label = { Text("Nome do Pacote") },
             placeholder = { Text("Nome do Pacote") },
             singleLine = true,
@@ -61,16 +68,16 @@ fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Mod
                 focusedIndicatorColor = Color(0xFF000000),
                 unfocusedIndicatorColor = Color.Gray,
                 focusedTextColor = Color.Black,
-                unfocusedTextColor = Color.White,
+                unfocusedTextColor = Color.Gray,
                 cursorColor = Color(0xFF000000)
             ),
         )
-        Spacer(Modifier.weight(0.1f))
+        Spacer(Modifier.weight(0.05f))
         OutlinedTextField(
-            value = texto,
-            onValueChange = { texto = it },
-            label = { Text("Nome do Pacote") },
-            placeholder = { Text("Nome do Pacote") },
+            value = furo,
+            onValueChange = { furo = it },
+            label = { Text("Furo") },
+            placeholder = { Text("Furo") },
             singleLine = true,
             shape = RoundedCornerShape(24.dp),
             colors = TextFieldDefaults.colors(
@@ -79,16 +86,16 @@ fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Mod
                 focusedIndicatorColor = Color(0xFF000000),
                 unfocusedIndicatorColor = Color.Gray,
                 focusedTextColor = Color.Black,
-                unfocusedTextColor = Color.White,
+                unfocusedTextColor = Color.Gray,
                 cursorColor = Color(0xFF000000)
             ),
         )
-        Spacer(Modifier.weight(0.1f))
+        Spacer(Modifier.weight(0.05f))
         OutlinedTextField(
-            value = texto,
-            onValueChange = { texto = it },
-            label = { Text("Nome do Pacote") },
-            placeholder = { Text("Nome do Pacote") },
+            value = amostra,
+            onValueChange = { amostra = it },
+            label = { Text("Amostra") },
+            placeholder = { Text("Amostra") },
             singleLine = true,
             shape = RoundedCornerShape(24.dp),
             colors = TextFieldDefaults.colors(
@@ -97,15 +104,18 @@ fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Mod
                 focusedIndicatorColor = Color(0xFF000000),
                 unfocusedIndicatorColor = Color.Gray,
                 focusedTextColor = Color.Black,
-                unfocusedTextColor = Color.White,
+                unfocusedTextColor = Color.Gray,
                 cursorColor = Color(0xFF000000)
             ),
         )
-        Spacer(Modifier.weight(0.1f))
+        Spacer(Modifier.weight(0.05f))
         Button(
             shape = RoundedCornerShape(24.dp),
             onClick = {
-                navController.navigate("")
+                val pacoteSafe = Uri.encode(pacote)
+                val furoSafe = Uri.encode(furo)
+                val amostraSafe = Uri.encode(amostra)
+                navController.navigate("AdicionarEnsaios/$pacoteSafe/$furoSafe/$amostraSafe")
             },
             modifier = modifier
                 .width(251.dp)
