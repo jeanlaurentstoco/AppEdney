@@ -47,8 +47,8 @@ fun CriarPacote(navController: NavController, modifier: Modifier = Modifier) {
 @Composable
 fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Modifier) {
     var pacote by rememberSaveable() { mutableStateOf("") }
-    var furo by rememberSaveable() { mutableStateOf("") }
-    var amostra by rememberSaveable() { mutableStateOf("") }
+    var cliente by rememberSaveable() { mutableStateOf("") }
+    var prazo by rememberSaveable() { mutableStateOf("") }
     Column(
         Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -74,10 +74,10 @@ fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Mod
         )
         Spacer(Modifier.weight(0.05f))
         OutlinedTextField(
-            value = furo,
-            onValueChange = { furo = it },
-            label = { Text("Furo") },
-            placeholder = { Text("Furo") },
+            value = cliente,
+            onValueChange = { cliente = it },
+            label = { Text("cliente") },
+            placeholder = { Text("cliente") },
             singleLine = true,
             shape = RoundedCornerShape(24.dp),
             colors = TextFieldDefaults.colors(
@@ -92,10 +92,10 @@ fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Mod
         )
         Spacer(Modifier.weight(0.05f))
         OutlinedTextField(
-            value = amostra,
-            onValueChange = { amostra = it },
-            label = { Text("Amostra") },
-            placeholder = { Text("Amostra") },
+            value = prazo,
+            onValueChange = { prazo = it },
+            label = { Text("prazo") },
+            placeholder = { Text("prazo") },
             singleLine = true,
             shape = RoundedCornerShape(24.dp),
             colors = TextFieldDefaults.colors(
@@ -113,9 +113,9 @@ fun FormularioCriarPacote(navController: NavController, modifier: Modifier = Mod
             shape = RoundedCornerShape(24.dp),
             onClick = {
                 val pacoteSafe = Uri.encode(pacote)
-                val furoSafe = Uri.encode(furo)
-                val amostraSafe = Uri.encode(amostra)
-                navController.navigate("AdicionarEnsaios/$pacoteSafe/$furoSafe/$amostraSafe")
+                val clienteSafe = Uri.encode(cliente)
+                val prazoSafe = Uri.encode(prazo)
+                navController.navigate("AdicionarEnsaios/$pacoteSafe/$clienteSafe/$prazoSafe")
             },
             modifier = modifier
                 .width(251.dp)

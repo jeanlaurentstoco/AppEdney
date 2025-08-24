@@ -173,7 +173,7 @@ fun BotoesTelaInicial(navController: NavController, modifier: Modifier = Modifie
                     "Gráficos", modifier = modifier, fontSize = 24.sp
                 )
             }
-            Spacer(Modifier.weight(0.1f))
+            Spacer(Modifier.weight(1f))
         }
         Spacer(Modifier.weight(0.1f))
         Row {

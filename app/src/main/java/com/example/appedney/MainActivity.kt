@@ -44,17 +44,17 @@ fun AppNavHost() {
         composable("Criar Pacote") { CriarPacote(navController) }
 
         composable(
-            route = "AdicionarEnsaios/{pacote}/{furo}/{amostra}",
+            route = "AdicionarEnsaios/{pacote}/{cliente}/{prazo}",
             arguments = listOf(
                 navArgument("pacote") { type = NavType.StringType },
-                navArgument("furo") { type = NavType.StringType },
-                navArgument("amostra") { type = NavType.StringType }
+                navArgument("cliente") { type = NavType.StringType },
+                navArgument("prazo") { type = NavType.StringType }
             )
         ) { backStackEntry ->
             val pacote = backStackEntry.arguments?.getString("pacote")
-            val furo = backStackEntry.arguments?.getString("furo")
-            val amostra = backStackEntry.arguments?.getString("amostra")
-            AdicionarEnsaios(navController, pacote, furo, amostra)
+            val cliente = backStackEntry.arguments?.getString("cliente")
+            val prazo = backStackEntry.arguments?.getString("prazo")
+            AdicionarEnsaios(navController, pacote, cliente, prazo)
         }
     }
 }
