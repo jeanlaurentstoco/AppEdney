@@ -38,7 +38,7 @@ fun CriarPacote(navController: NavController, modifier: Modifier = Modifier) {
     Surface {
         Column {
             appBar("Criar Pacote")
-            body(Preenchimento = { FormularioCriarPacote(navController) })
+            body(navController = navController, Preenchimento = { FormularioCriarPacote(navController) })
         }
     }
 }

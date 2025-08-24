@@ -9,11 +9,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.example.appedney.ui.theme.Fundo
 
 
 @Composable
-fun body(Preenchimento: @Composable () -> Unit, modifier: Modifier = Modifier) {
+fun body(Preenchimento: @Composable () -> Unit, modifier: Modifier = Modifier, navController: NavController) {
     Surface(modifier = modifier) {
         Column(modifier = modifier.fillMaxSize()) {
             Box(
@@ -23,7 +24,7 @@ fun body(Preenchimento: @Composable () -> Unit, modifier: Modifier = Modifier) {
                     .fillMaxWidth(),
             ) {
                 Preenchimento()
-                NavegacaoInferior(modifier = Modifier.align(Alignment.BottomCenter))
+                NavegacaoInferior(navController = navController, modifier = Modifier.align(Alignment.BottomCenter))
             }
         }
     }

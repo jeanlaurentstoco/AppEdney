@@ -30,7 +30,7 @@ fun TelaInicio(navController: NavController, modifier: Modifier = Modifier) {
     Surface {
         Column {
             appBar("Início")
-            body(Preenchimento = { BotoesTelaInicial(navController) })
+            body(navController = navController, Preenchimento = { BotoesTelaInicial(navController) })
         }
     }
 }
