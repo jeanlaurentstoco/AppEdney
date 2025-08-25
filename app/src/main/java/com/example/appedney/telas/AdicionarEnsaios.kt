@@ -242,6 +242,7 @@ fun ItemEnsaio(
             }
             Spacer(modifier.height(15.dp))
         }
+        item { Spacer(modifier.height(100.dp)) }
     }
 }
 
