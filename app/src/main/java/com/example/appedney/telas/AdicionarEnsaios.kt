@@ -5,7 +5,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -42,6 +44,7 @@ import com.example.appedney.componentes.body
 import com.example.appedney.ui.theme.Fundobt5
 import com.example.appedney.ui.theme.Preto
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 
 @Composable
@@ -69,7 +72,8 @@ fun BodyAdicionarEnsaios(
     cliente: String?,
     prazo: String?,
 ) {
-    val listaDeEnsaios = MutableStateFlow<List<Ensaio>>(emptyList())
+    val listaDeEnsaios = remember { MutableStateFlow<List<Ensaio>>(emptyList()) }
+
     var furo by rememberSaveable() { mutableStateOf("") }
     var amostra by rememberSaveable() { mutableStateOf("") }
     var descricao by rememberSaveable() { mutableStateOf("") }
@@ -154,66 +158,42 @@ fun BodyAdicionarEnsaios(
                     cursorColor = Color(0xFF000000)
                 ),
             )
-            Column(Modifier.fillMaxSize()) {
-                val ensaios by listaDeEnsaios.collectAsState() // observa o flow
-
-                LazyColumn(modifier = Modifier) {
-                    items(ensaios.size) { index ->
-                        val ensaio = ensaios[index]
-                        Card(
-                            colors = CardDefaults.cardColors(
-                                containerColor = Fundobt5
-                            )
+            Spacer(Modifier.height(20.dp))
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                Row {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .padding(end = 16.dp, bottom = 150.dp),
+                        verticalArrangement = Arrangement.Bottom,
+                        horizontalAlignment = Alignment.End
+                    ) {
+                        FloatingActionButton(
+                            onClick = {
+                                listaDeEnsaios.update {
+                                    listaDeEnsaios.value + Ensaio(
+                                        furo,
+                                        amostra,
+                                        descricao
+                                    )
+                                }
+                                furo = ""
+                                amostra = ""
+                                descricao = ""
+                            },
                         ) {
-                            Row(
-                                modifier = Modifier
-                                    .padding(horizontal = 20.dp)
-                                    .padding(vertical = 20.dp)
-                            ) {
-                                Text(text = "Furo: ${ensaio.furo}",
-                                    fontSize = 16.sp,
-                                    color = Color.White
-                                )
-                                Spacer(Modifier.width(15.dp))
-                                Text(text = "Amostra: ${ensaio.amostra}",
-                                    fontSize = 16.sp,
-                                    color = Color.White
-                                )
-                                Spacer(Modifier.width(15.dp))
-                                Text(
-                                    text = "Descrição: ${ensaio.descricao ?: "Sem descrição"}",
-                                    fontSize = 16.sp,
-                                    color = Color.White
-                                )
-                            }
+                            Icon(
+                                imageVector = Icons.Default.AddCircle,
+                                contentDescription = "Adicionar",
+                                modifier = Modifier.size(86.dp)
+                            )
                         }
                     }
-                }
-                Column(
-                    modifier = Modifier
-                        .padding(end = 16.dp, bottom = 150.dp),
-                    verticalArrangement = Arrangement.Bottom,
-                    horizontalAlignment = Alignment.End
-                ) {
-                    FloatingActionButton(
-                        onClick = {
-                            listaDeEnsaios.update {
-                                listaDeEnsaios.value + Ensaio(
-                                    furo,
-                                    amostra,
-                                    descricao
-                                )
-                            }
-                            furo = ""
-                            amostra = ""
-                            descricao = ""
-                        },
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Adicionar",
-                            modifier = Modifier.size(86.dp)
-                        )
+                    Column (modifier = Modifier.fillMaxHeight().padding(start = 16.dp)){
+                        ItemEnsaio(listaDeEnsaios)
                     }
                 }
             }
@@ -241,12 +221,14 @@ fun ItemEnsaio(
                         .padding(horizontal = 20.dp)
                         .padding(vertical = 20.dp)
                 ) {
-                    Text(text = "Furo: ${ensaio.furo}",
+                    Text(
+                        text = "Furo: ${ensaio.furo}",
                         fontSize = 16.sp,
                         color = Color.White
                     )
                     Spacer(modifier.width(15.dp))
-                    Text(text = "Amostra: ${ensaio.amostra}",
+                    Text(
+                        text = "Amostra: ${ensaio.amostra}",
                         fontSize = 16.sp,
                         color = Color.White
                     )
@@ -258,6 +240,7 @@ fun ItemEnsaio(
                     )
                 }
             }
+            Spacer(modifier.height(15.dp))
         }
     }
 }
